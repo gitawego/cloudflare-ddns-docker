@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  ddns:
+    restart: always
+    build: .
+    image: cloudflare-ddns-docker-rpi
+    environment:
+     EMAIL: my_email@gmail.com
+     API_KEY: api_key
+     UPDATE_TIME: 1
+     ZONE: domain.io
+     RECORD: doman.io
