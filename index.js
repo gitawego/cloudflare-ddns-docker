@@ -6,7 +6,6 @@ const publicIp = require('public-ip'),
 	}),
 	minutes = process.env.UPDATE_TIME,
 	the_interval = minutes * 60 * 1000;
-const fs = require('fs');
 
 function findRecord(records, type) {
 	let found;
