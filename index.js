@@ -6,6 +6,18 @@ const publicIp = require('public-ip'),
     }),
     minutes = process.env.UPDATE_TIME,
     the_interval = minutes * 60 * 1000;
+const fs = require('fs');
+
+function findRecord(records,type){
+	let found;
+	records.some((record)=>{
+		if(record.type === type.toUpperCase()){
+			found = record;
+			return true;
+		}
+	});
+	return found;
+}
 
 setInterval(function () {
     publicIp.v4().then(ip => {
@@ -14,8 +26,17 @@ setInterval(function () {
         }).then(function (zone) {
             api.zoneDNSRecordGetAll(zone[0].id, {
                 name: process.env.RECORD
-            }).then(function (record) {
-                api.zoneDNSRecordUpdate(zone[0].id, record[0].id, {
+            }).then(function (records) {
+				const record = findRecord(records,'A');
+				if(!record){
+					console.log('record not found');
+					return;
+				}
+				if(record.content.trim() === (''+ip).trim()){
+					console.log('same ip, do not update');
+					return;
+				}
+                api.zoneDNSRecordUpdate(zone[0].id, record.id, {
                     type: 'A',
                     content: ip
                 }).then(function (result) {
