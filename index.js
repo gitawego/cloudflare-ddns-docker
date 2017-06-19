@@ -11,7 +11,7 @@ const fs = require('fs');
 function findRecord(records, type) {
 	let found;
 	records.some((record) => {
-		if (record.type === type.toUpperCase()) {
+		if (record.type.toUpperCase() === type.toUpperCase()) {
 			found = record;
 			return true;
 		}
@@ -33,7 +33,7 @@ function updateRecord() {
 					return;
 				}
 				if (record.content.trim() === ('' + ip).trim()) {
-					console.log('same ip, do not update');
+					console.log('same ip, do not update',ip);
 					return;
 				}
 				api.zoneDNSRecordUpdate(zone[0].id, record.id, {
@@ -41,8 +41,8 @@ function updateRecord() {
 					content: ip
 				}).then(function (result) {
 					console.log(result);
-				})
-			})
+				});
+			});
 		});
 	});
 }

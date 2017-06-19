@@ -8,6 +8,6 @@ services:
     environment:
      EMAIL: my_email@gmail.com
      API_KEY: api_key
-     UPDATE_TIME: 1
+     UPDATE_TIME: 10
      ZONE: domain.io
      RECORD: doman.io
