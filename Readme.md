@@ -11,7 +11,7 @@ docker-compose build
 ### modify variables in docker-compose
 
 * EMAIL: your cloudflare email
-* API_KEY: your global api key
+* API_KEY: your global api key found in [account setting](https://www.cloudflare.com/a/account/my-account)
 * UPDATE_TIME: interval time, it's in minute.
 
 ### run docker
