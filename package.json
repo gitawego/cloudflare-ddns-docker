@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/woodjamie/cloudflare-ddns-docker#readme",
   "dependencies": {
-    "cloudflare4": "^0.2.5",
-    "public-ip": "^2.3.3"
+    "cloudflare": "^2.4.1",
+    "public-ip": "^2.4.0"
   }
 }

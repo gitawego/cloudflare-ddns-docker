@@ -10,4 +10,4 @@ services:
      API_KEY: api_key
      UPDATE_TIME: 10
      ZONE: domain.io
-     RECORD: doman.io
+     IGNORED_DNS_NAMES: doman.io

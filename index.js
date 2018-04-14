@@ -1,50 +1,14 @@
-const publicIp = require('public-ip'),
-  CloudFlareAPI = require('cloudflare4'),
-  api = new CloudFlareAPI({
-    email: process.env.EMAIL,
-    key: process.env.API_KEY
-  }),
-  minutes = process.env.UPDATE_TIME,
-  the_interval = minutes * 60 * 1000;
+const minutes = process.env.UPDATE_TIME || 10;
+const the_interval = minutes * 60 * 1000;
 
-function findRecord(records, type) {
-  let found;
-  records.some((record) => {
-    if (record.type.toUpperCase() === type.toUpperCase()) {
-      found = record;
-      return true;
-    }
-  });
-  return found;
-}
+const { updateRecord } = require('./updateRecord');
 
-function updateRecord() {
-  publicIp.v4().then(ip => {
-    api.zoneGetAll({
-      name: process.env.ZONE
-    }).then(function (zone) {
-      api.zoneDNSRecordGetAll(zone[0].id, {
-        name: process.env.RECORD
-      }).then(function (records) {
-        const record = findRecord(records, 'A');
-        if (!record) {
-          console.log('record not found');
-          return;
-        }
-        if (record.content.trim() === ('' + ip).trim()) {
-          console.log('same ip, do not update', ip);
-          return;
-        }
-        api.zoneDNSRecordUpdate(zone[0].id, record.id, {
-          type: 'A',
-          content: ip
-        }).then(function (result) {
-          console.log(result);
-        });
-      });
-    });
-  });
-}
+setInterval(async () => {
+  try {
+    updateRecord();
+  } catch (err) {
+    console.error(err);
+  }
+}, the_interval);
 
-setInterval(updateRecord, the_interval);
 updateRecord();
