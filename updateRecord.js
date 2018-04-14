@@ -56,7 +56,7 @@ exports.updateRecord = async function updateRecord() {
       if (record.type !== 'A') {
         continue;
       }
-      const ignored = convertStringToArray(process.env.IGNORED_DNS_NAMES || '');
+      const ignored = convertStringToArray(process.env.IGNORED_DNS_NAME || '');
       if (ignored.indexOf(record.name) > -1) {
         console.log(`${record.name} is in ignored list`);
         continue;
