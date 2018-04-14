@@ -45,7 +45,6 @@ exports.updateRecord = async function updateRecord() {
   console.log('current public ip is', ip);
   const zoneNames = convertStringToArray(process.env.ZONE);
   const zones = await getZonesByNames(zoneNames);
-  console.log('zone', zones);
   console.log(`get ${zones.length} zones`);
   const zoneDNSRecords = await getZoneDNSRecords(zones.map(zone => zone.id));
 
