@@ -51,7 +51,6 @@ exports.updateRecord = async function updateRecord() {
 
   for (const dnsRecords of zoneDNSRecords) {
     console.log(`get ${dnsRecords.length} dns records`);
-    console.log('dns', dnsRecords);
     for (const record of dnsRecords) {
       if (record.type !== 'A') {
         continue;
