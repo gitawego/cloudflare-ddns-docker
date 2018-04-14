@@ -13,8 +13,8 @@ docker-compose build
 * EMAIL: your cloudflare email
 * API_KEY: your global api key found in [account setting](https://www.cloudflare.com/a/account/my-account)
 * UPDATE_TIME: interval time, it's in minute.
-* ZONE: list of zone to update, ex: domain1.io, domain2.com
-* IGNORED_DNS_NAMES: list of A records to be ignored, ex: ds.domain1.io, test.domain2.io
+* ZONE: list of zones to update, ex: domain1.io, domain2.com
+* IGNORED_DNS_NAME: list of **A** records to be ignored, ex: ds.domain1.io, test.domain2.io
 
 ### run docker
 
