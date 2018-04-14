@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-ddns-docker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Docker Container for updating a Cloudflare DNS record.",
   "main": "index.js",
   "scripts": {
@@ -11,12 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/woodjamie/cloudflare-ddns-docker.git"
   },
-  "keywords": [
-    "Cloudflare",
-    "DDNS",
-    "Docker",
-    "Node.JS"
-  ],
+  "keywords": ["Cloudflare", "DDNS", "Docker", "Node.JS"],
   "author": "Jamie Wood (me@jamiewood.io)",
   "license": "ISC",
   "bugs": {
