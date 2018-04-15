@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  ddns:
+    restart: always
+    image: ichainml/cloudflare-ddns-docker:alpine-latest
+    environment:
+     EMAIL: my_email@gmail.com
+     API_KEY: api_key
+     UPDATE_TIME: 10
+     ZONE: domain.io
+     IGNORED_DNS_NAME: domain.io, ds.domain.io
