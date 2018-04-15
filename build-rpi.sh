@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build . -f ./raspberry-pi/Dockerfile -t cloudflare-ddns-docker-rpi
+docker build . -f ./docker/raspberry-pi/Dockerfile -t cloudflare-ddns-docker-rpi
