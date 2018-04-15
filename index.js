@@ -5,7 +5,7 @@ const { updateRecord } = require('./updateRecord');
 
 setInterval(async () => {
   try {
-    updateRecord();
+    await updateRecord();
   } catch (err) {
     console.error(err);
   }
