@@ -3,8 +3,7 @@ version: '2'
 services:
   ddns:
     restart: always
-    build: .
-    image: cloudflare-ddns-docker-rpi
+    image: ichainml/cloudflare-ddns-docker:alpine-latest
     environment:
      EMAIL: my_email@gmail.com
      API_KEY: api_key
