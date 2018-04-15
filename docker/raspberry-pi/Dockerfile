@@ -1,9 +1,10 @@
 FROM jsurf/rpi-raspbian:latest
 
 RUN apt-get update && \
-  apt-get install wget curl -y && \
+  apt-get install curl -y && \
   curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
-  apt-get install -y nodejs
+  apt-get install -y nodejs && \
+  apt-get remove curl -y
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
